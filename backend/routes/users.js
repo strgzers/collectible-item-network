@@ -7,10 +7,20 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
-    const username = req.body.username;
+router.route('/add').post((req, res) =>
+{
+    const userID = req.body.userID;
+    const password = req.body.password;
+    const role = req.body.role;
+    const shippingAddress = req.body.shippingAddress;
 
-    const newUser = new User({username});
+    const newUser = new User(
+        {
+            userID,
+            password,
+            role,
+            shippingAddress,
+        });
 
     newUser.save()
         .then(() => res.json('User added!'))

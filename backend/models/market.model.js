@@ -17,6 +17,7 @@ const marketSchema = new Schema(
                 type: String,
                 required: true,
                 trim: true,
+
             },
         URL:
             {
@@ -35,6 +36,8 @@ const marketSchema = new Schema(
         timestamps: true,
     });
 
+
 const Market = mongoose.model('Market', marketSchema);
+
 
 module.exports = Market;
